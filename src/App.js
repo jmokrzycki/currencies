@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
+import CurrenciesTable from './Components/CurrenciesTable.js';
 import './App.css';
 
 
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      currencies: [],
+    }
+  }
 
   componentDidMount() {
-    fetch('http://api.nbp.pl/api/exchangerates/tables/A')
+    fetch('http://api.nbp.pl/api/exchangerates/tables/A/?format=json')
     .then(results => {
-      console.log(results.json());
+      return results.json();
+    }).then(data => {
+      const rates = data.reduce( (rates, rate) => rates = rate.rates, [] );
+      this.setState({currencies: rates});
     });
   }
 
@@ -18,9 +28,9 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+
+        <CurrenciesTable currencies={this.state.currencies} />
       </div>
     );
   }
