@@ -21,7 +21,7 @@ export default class CurrenciesTable extends Component {
 
     return (
       <div className="currencies-selector-wrapper">
-        <button id="aaa" className="btn btn-dark btn-clear-currencies" onClick={this.clearSelected.bind(this)}>Clear all</button>
+        <button className="btn btn-dark btn-clear-currencies" onClick={this.clearSelected.bind(this)}>Clear all</button>
         <div className="selected-currencies-list">
           <table className="selector-table table table-dark table-hover">
             <tbody>
