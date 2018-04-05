@@ -13,6 +13,7 @@ class App extends Component {
       selected: []
     }
     this.changeSelected = this.changeSelected.bind(this);
+    this.clearSelected = this.clearSelected.bind(this);
   }
 
   changeSelected(currencyCode, isChecked) {
@@ -48,7 +49,7 @@ class App extends Component {
         <div className="content-wrapper">
         <CurrenciesTable currencies={this.state.currencies} selected={this.state.selected}/>
         <CurrenciesSelector currencies={this.state.currencies}
-          changeSelected={this.changeSelected.bind(this)} clearSelected={this.clearSelected.bind(this)}/>
+          changeSelected={this.changeSelected} clearSelected={this.clearSelected}/>
         </div>
       </div>
     );
