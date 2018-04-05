@@ -1,14 +1,28 @@
 import React, { Component } from 'react';
-import CurrenciesTable from './Components/CurrenciesTable.js';
-import './App.css';
-
-
+import CurrenciesTable from './components/CurrenciesTable.js';
+import CurrenciesSelector from './components/CurrenciesSelector.js';
+import Header from './components/Header.js';
+import './styles/App.min.css';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       currencies: [],
+      selected: []
+    }
+    this.changeSelected = this.changeSelected.bind(this);
+  }
+
+  changeSelected(currencyCode, isChecked) {
+    let selected = this.state.selected;
+    if(isChecked){
+      let updateSelected = selected.slice();
+      updateSelected.push(currencyCode);
+      this.setState({selected: updateSelected});
+    } else {
+      let filtered = selected.filter(currency => currency !== currencyCode);
+      this.setState({selected: filtered});
     }
   }
 
@@ -25,12 +39,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-
-
-        <CurrenciesTable currencies={this.state.currencies} />
+        <Header/>
+        <div className="contentWrapper">
+        <CurrenciesTable currencies={this.state.currencies} selected={this.state.selected}/>
+        <CurrenciesSelector currencies={this.state.currencies}
+          changeSelected={this.changeSelected.bind(this)}/>
+        </div>
       </div>
     );
   }
