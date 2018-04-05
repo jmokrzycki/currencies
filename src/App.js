@@ -27,6 +27,10 @@ class App extends Component {
     }
   }
 
+  clearSelected() {
+      this.setState({selected: []});
+  }
+
   componentDidMount() {
     fetch('http://api.nbp.pl/api/exchangerates/tables/A/?format=json')
     .then(results => {
@@ -41,10 +45,10 @@ class App extends Component {
     return (
       <div className="App">
         <Header/>
-        <div className="contentWrapper">
+        <div className="content-wrapper">
         <CurrenciesTable currencies={this.state.currencies} selected={this.state.selected}/>
         <CurrenciesSelector currencies={this.state.currencies}
-          changeSelected={this.changeSelected.bind(this)}/>
+          changeSelected={this.changeSelected.bind(this)} clearSelected={this.clearSelected.bind(this)}/>
         </div>
       </div>
     );

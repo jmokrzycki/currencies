@@ -17,7 +17,7 @@ export default class CurrenciesTable extends Component {
 
     return (
       <div className="currenciesWrapper">
-        <table key="" className="currenciesTable table table-dark table-hover">
+        <table key="" className="currencies-table table table-dark table-hover">
           <thead>
             <tr>
               <th className="currency">Currency</th>

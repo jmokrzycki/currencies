@@ -4,6 +4,10 @@ export default class CurrenciesTable extends Component {
   getSelected(e){
     this.props.changeSelected(e.target.value, e.target.checked);
   }
+  clearSelected(){
+    this.props.clearSelected();
+  }
+
   render(){
     let currencies = this.props.currencies;
     const currenciesLis = currencies.map((currency, index) =>
@@ -14,13 +18,17 @@ export default class CurrenciesTable extends Component {
       </tr>
     );
 
+
     return (
-      <div className="currenciesSelectorWrapper">
-        <table className="selectorTable table table-dark table-hover">
-          <tbody>
-            {currenciesLis}
-          </tbody>
-        </table>
+      <div className="currencies-selector-wrapper">
+        <button id="aaa" className="btn btn-dark btn-clear-currencies" onClick={this.clearSelected.bind(this)}>Clear all</button>
+        <div className="selected-currencies-list">
+          <table className="selector-table table table-dark table-hover">
+            <tbody>
+              {currenciesLis}
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   }
