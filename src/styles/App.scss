@@ -4,17 +4,14 @@
 
 .contentWrapper{
     margin: auto;
-    width: 800px;
+    margin-top: 10px;
+    max-width: 750px;
     background-color: red;
-}
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
 }
 
 .App-header {
   background-color: #222;
-  height: 50px;
+  height: 70px;
   padding: 20px;
   color: white;
 }
@@ -23,13 +20,7 @@
   font-size: 1.5em;
 }
 
-.currenciesTable, .currenciesTable th, .currenciesTable td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-
 .currenciesTable {
-    margin: 10px;
     .currency {
       width: 250px;
     }
@@ -40,7 +31,6 @@
       width: 100px;
     }
 }
-
 
 .selectorTable label {
   float: left;
@@ -55,5 +45,7 @@
 }
 
 .currenciesSelectorWrapper {
-  float: left;
+  float: right;
+  overflow: auto;
+  height: 500px;
 }

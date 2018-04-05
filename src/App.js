@@ -3,6 +3,7 @@ import CurrenciesTable from './components/CurrenciesTable.js';
 import CurrenciesSelector from './components/CurrenciesSelector.js';
 import Header from './components/Header.js';
 import './styles/App.min.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   constructor() {

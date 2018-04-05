@@ -16,7 +16,7 @@ export default class CurrenciesTable extends Component {
 
     return (
       <div className="currenciesSelectorWrapper">
-        <table className="selectorTable">
+        <table className="selectorTable table table-dark table-hover">
           <tbody>
             {currenciesLis}
           </tbody>
